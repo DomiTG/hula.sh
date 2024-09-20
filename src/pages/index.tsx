@@ -23,10 +23,10 @@ export default function Home() {
             Developer
           </h2>
           <p className="text-neutral-200 mt-4">
-            Oh, hi there! Nice to meet you. I'm Dominik, a software engineer and
-            web developer from the Czech Republic. I'm passionate about web
+            Oh, hi there! Nice to meet you. I&apos;m Dominik, a software engineer and
+            web developer from the Czech Republic. I&apos;m passionate about web
             technologies, open-source software, and building things that make
-            people's lives easier.
+            people&apos;s lives easier.
           </p>
         </section>
         <section className="p-4">
