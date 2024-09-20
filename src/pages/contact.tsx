@@ -37,7 +37,7 @@ export default function ContactPage() {
                 </div>
               </div>
               <p
-                className="text-sm text-neutral-500 hover:text-neutral-400 transition-all"
+                className="text-sm text-neutral-500 hover:text-neutral-400 transition-all hidden md:block"
                 title="This is my preferred way of communication."
               >
                 preffered.
