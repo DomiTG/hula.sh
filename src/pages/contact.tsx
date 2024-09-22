@@ -1,8 +1,7 @@
 import { useRouter } from "next/router";
 
 export default function ContactPage() {
-
-    const router = useRouter();
+  const router = useRouter();
 
   return (
     <div className="min-h-screen h-full flex justify-center bg-neutral-900 p-4">
