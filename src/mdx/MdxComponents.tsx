@@ -1,4 +1,7 @@
+import MdxImage from "./MdxImage";
+
 export const components = {
+	MdxImage,
 	p(props: JSX.IntrinsicElements['p']) {
 		return <p className="text-neutral-200" {...props} style={{ paddingTop: '1rem', paddingBottom: '1rem' }} />;
 	},

@@ -70,7 +70,7 @@ export default function ContactPage() {
                 <span className="text-neutral-500 text-sm ml-2">~ 3 hours</span>
               </div>
               <span className="text-neutral-500 text-lg hover:text-neutral-400 transition-all select-none">
-                Dominik#1234
+                domihraje
               </span>
             </div>
           </section>

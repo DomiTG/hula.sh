@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { allPosts, Post } from "contentlayer/generated";
-import { useMdxComponent } from "@/useMdxComponent";
+import { useMdxComponent } from "@/mdx/useMdxComponent";
 import { pick } from "contentlayer/client";
-import { components } from "@/MdxComponents";
+import { components } from "@/mdx/MdxComponents";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
