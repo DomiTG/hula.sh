@@ -6,7 +6,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>domi.sh</title>
+        <title>hula.sh</title>
         <meta name="description" content="Programátor, který miluje vyvíjení webových aplikací." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="keywords" content="web development, software engineering, open-source software, web technologies, web applications, web apps, programming, coding, software development, software developer, web developer, developer, programmer" />

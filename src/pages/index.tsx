@@ -10,7 +10,7 @@ export default function Home() {
         <div className="max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl w-full">
           <div className="sticky top-2 z-[99]">
             <nav className="flex justify-between items-center p-4 rounded-md bg-neutral-800 backdrop-blur-lg bg-opacity-50 border border-neutral-800">
-              <h2 className="text-xl font-bold text-neutral-100">domi.sh</h2>
+              <h2 className="text-xl font-bold text-neutral-100">hula.sh</h2>
             </nav>
           </div>
           <section className="p-4 pt-10">
