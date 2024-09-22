@@ -69,7 +69,7 @@ export default function Home() {
           </section>
         </div>
         <footer className="mt-8 mb-3 text-center text-neutral-500 text-sm">
-          © 2021 Dominik Hůla. All rights reserved.
+          © 2024 Dominik Hůla. All rights reserved.
         </footer>
       </div>
     </div>

@@ -1,3 +1,4 @@
+import { allPosts } from "contentlayer/generated";
 import { useRouter } from "next/router";
 
 export default function BlogPage() {
@@ -23,27 +24,35 @@ export default function BlogPage() {
             </p>
           </section>
           <section className="p-4">
-            <div
-              className="w-full p-4 bg-transparent rounded-md hover:bg-neutral-800 transition-all cursor-pointer"
-              onClick={() => router.push("/blog/1")}
-            >
-              <div className="flex flex-row items-center">
-                <span className="text-neutral-200 text-xs">
-                  September 1, 2021
-                </span>
-                <span className="text-neutral-500 text-xs ml-2">•</span>
-                <span className="text-neutral-200 text-xs ml-2">
-                  Web Development
-                </span>
-              </div>
-              <h4 className="font-bold text-neutral-200 text-2xl">
-                <span className="text-neutral-200">My first blog post</span>
-              </h4>
-              <p className="text-neutral-200 mt-2">
-                This is my first blog post. I&apos;m so excited to share my thoughts
-                with you. I hope you&apos;ll enjoy reading it!
-              </p>
-            </div>
+            {allPosts.length === 0 && (
+              <div className="text-neutral-200">No posts found.</div>
+            )}
+            {allPosts.length > 0 &&
+              allPosts.map((post) => (
+                <div
+                  key={post.slug}
+                  className="w-full p-4 bg-transparent rounded-md hover:bg-neutral-800 transition-all cursor-pointer"
+                  onClick={() => router.push(`/blog/${post.slug}`)}
+                >
+                  <div className="flex flex-row items-center">
+                    <span className="text-neutral-200 text-xs">
+                      {post.publishedAtHuman}
+                    </span>
+                    <span className="text-neutral-500 text-xs ml-2">•</span>
+                    <span className=" text-xs ml-2 uppercase text-transparent bg-clip-text bg-gradient-to-t from-pink-500 to-pink-600 font-bold">
+                      {post.tags ? post.tags.join(", ") : ""}
+                    </span>
+                  </div>
+                  <h4 className="font-bold text-neutral-200 text-2xl">
+                    <span className="text-neutral-200">
+                      {post.title}
+                    </span>
+                  </h4>
+                  <p className="text-neutral-200 mt-2">
+                    {post.summary}
+                  </p>
+                </div>
+              ))}
           </section>
           <div
             className="block w-full p-4 text-center bg-neutral-800 rounded-md border border-neutral-800 backdrop-blur-md bg-opacity-50 hover:bg-opacity-60 transition-all mt-4 text-neutral-100 tracking-widest uppercase cursor-pointer"
@@ -53,7 +62,7 @@ export default function BlogPage() {
           </div>
         </div>
         <footer className="mt-8 mb-3 text-center text-neutral-500 text-sm">
-          © 2021 Dominik Hůla. All rights reserved.
+          © 2024 Dominik Hůla. All rights reserved.
         </footer>
       </div>
     </div>
