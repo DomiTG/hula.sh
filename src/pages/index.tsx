@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 
 export default function Home() {
-
   const router = useRouter();
 
   return (
@@ -31,7 +30,25 @@ export default function Home() {
             </p>
           </section>
           <section className="p-4">
-            <div className="w-full relative p-8 bg-neutral-800 rounded-md border border-neutral-800 backdrop-blur-md bg-opacity-50 hover:bg-opacity-60 transition-all cursor-pointer" onClick={() => router.push("/projects")}>
+            <div
+              className="w-full relative p-8 bg-neutral-800 rounded-md border border-neutral-800 backdrop-blur-md bg-opacity-50 hover:bg-opacity-60 transition-all cursor-pointer"
+              onClick={() => router.push("/about")}
+            >
+              <h4 className="font-bold text-neutral-100 text-4xl uppercase relative z-10">
+                <span className="text-yellow-500 drop-shadow-[0_0_10px_rgba(252,211,77,1)]">
+                  About Me
+                </span>
+              </h4>
+              <p className="text-neutral-500 mt-1 lg:max-w-[50%] relative z-10">
+                Who am I? Get to know me better and learn more about my
+                background, skills, and experience.
+              </p>
+              <div className="absolute inset-0 rounded-md bg-yellow-300 opacity-5 blur-xl"></div>
+            </div>
+            <div
+              className="w-full relative p-8 bg-neutral-800 rounded-md border border-neutral-800 backdrop-blur-md bg-opacity-50 hover:bg-opacity-60 transition-all cursor-pointer mt-4"
+              onClick={() => router.push("/projects")}
+            >
               <h4 className="font-bold text-neutral-100 text-4xl uppercase relative z-10">
                 <span className="text-pink-500 drop-shadow-[0_0_10px_rgba(236,72,153,1)]">
                   Projects
@@ -43,7 +60,10 @@ export default function Home() {
               </p>
               <div className="absolute inset-0 rounded-md bg-pink-300 opacity-5 blur-xl"></div>
             </div>
-            <div className="w-full relative p-8 bg-neutral-800 rounded-md border border-neutral-800 backdrop-blur-md bg-opacity-50 hover:bg-opacity-60 transition-all cursor-pointer mt-4" onClick={() => router.push("/blog")}>
+            <div
+              className="w-full relative p-8 bg-neutral-800 rounded-md border border-neutral-800 backdrop-blur-md bg-opacity-50 hover:bg-opacity-60 transition-all cursor-pointer mt-4"
+              onClick={() => router.push("/blog")}
+            >
               <h4 className="font-bold text-neutral-100 text-4xl uppercase relative z-10">
                 <span className="text-blue-500 drop-shadow-[0_0_10px_rgba(59,130,246,1)]">
                   Blog
@@ -55,7 +75,10 @@ export default function Home() {
               </p>
               <div className="absolute inset-0 rounded-md bg-blue-300 opacity-5 blur-xl"></div>
             </div>
-            <div className="w-full relative p-8 bg-neutral-800 rounded-md border border-neutral-800 backdrop-blur-md bg-opacity-50 hover:bg-opacity-60 transition-all cursor-pointer mt-4" onClick={() => router.push("/contact")}>
+            <div
+              className="w-full relative p-8 bg-neutral-800 rounded-md border border-neutral-800 backdrop-blur-md bg-opacity-50 hover:bg-opacity-60 transition-all cursor-pointer mt-4"
+              onClick={() => router.push("/contact")}
+            >
               <h4 className="font-bold text-neutral-100 text-4xl uppercase relative z-10">
                 <span className="text-green-500 drop-shadow-[0_0_10px_rgba(16,185,129,1)]">
                   Contact
