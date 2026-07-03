@@ -1,21 +1,23 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { allPosts, Post } from "contentlayer/generated";
+import { allProjects, Project } from "contentlayer/generated";
 import { useMdxComponent } from "@/mdx/useMdxComponent";
 import { pick } from "contentlayer/client";
 import { components } from "@/mdx/MdxComponents";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import FooterComponent from "@/components/footer-component";
 
-export default function BlogPostPage({ post }: { post: Post }) {
+export default function ProjectPage({ project }: { project: Project }) {
   const router = useRouter();
-  const Comp = useMdxComponent(post.body.code);
+  const Comp = useMdxComponent(project.body.code);
 
   return (
     <>
       <Head>
-        <title>{post.title} - hula.sh</title>
-        <meta name="description" content={post.summary} />
+        <title>{project.title} - hula.sh</title>
+        <meta name="description" content={project.summary} />
       </Head>
+
       <div className="min-h-screen h-full flex justify-center bg-neutral-900 p-4">
         <div>
           <div className="max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl w-full">
@@ -24,34 +26,50 @@ export default function BlogPostPage({ post }: { post: Post }) {
                 <h2 className="text-xl font-bold text-neutral-100">hula.sh</h2>
               </nav>
             </div>
+
             <section className="px-4 pt-10">
-              <div className="flex flex-row items-start">
-                <h1 className="text-3xl font-bold text-neutral-100">
-                  {post.title}
-                </h1>
-              </div>
-              <p className="text-neutral-200 mt-4">{post.summary}</p>
+              <h1 className="text-3xl font-bold text-neutral-100">
+                {project.title}
+              </h1>
+
+              <p className="text-neutral-200 mt-4">{project.summary}</p>
+
               <p className="text-neutral-500 mt-4">
-                Published on {post.publishedAtHuman}{" "}
-                <span className="text-neutral-500 text-xs mr-1 ml-1">•</span>{" "}
-                <span className=" text-xs uppercase text-transparent bg-clip-text bg-gradient-to-t from-pink-500 to-pink-600 font-bold">
-                  {post.tags ? post.tags.join(", ") : ""}
+                {project.periodHuman}
+                <span className="text-neutral-500 text-xs mx-2">•</span>
+                <span className="text-xs uppercase text-transparent bg-clip-text bg-gradient-to-t from-pink-500 to-pink-600 font-bold">
+                  {project.status}
                 </span>
               </p>
+
+              {project.usedTechnologies &&
+                project.usedTechnologies.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {project.usedTechnologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="text-xs text-neutral-400 border border-neutral-800 rounded-full px-2 py-1"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                )}
             </section>
+
             <section className="p-4">
               <Comp components={components} />
             </section>
+
             <div
               className="block w-full p-4 text-center bg-neutral-800 rounded-md border border-neutral-800 backdrop-blur-md bg-opacity-50 hover:bg-opacity-60 transition-all mt-4 text-neutral-100 tracking-widest uppercase cursor-pointer"
-              onClick={() => router.push("/")}
+              onClick={() => router.push("/projects")}
             >
-              Go back to the homepage
+              Go back to projects
             </div>
           </div>
-          <footer className="mt-8 mb-3 text-center text-neutral-500 text-sm">
-            © 2024 Dominik Hůla. All rights reserved.
-          </footer>
+
+          <FooterComponent />
         </div>
       </div>
     </>
@@ -60,22 +78,24 @@ export default function BlogPostPage({ post }: { post: Post }) {
 
 export function getStaticPaths() {
   return {
-    paths: allPosts.map((post) => ({
-      params: { slug: post.slug },
+    paths: allProjects.map((project) => ({
+      params: { slug: project.slug },
     })),
     fallback: false,
   };
 }
 
 export function getStaticProps({ params }: { params: { slug: string } }) {
-  const post = allPosts.find((post) => post.slug === params.slug);
+  const project = allProjects.find((project) => project.slug === params.slug);
+
   return {
     props: {
-      post: pick(post as Post, [
+      project: pick(project as Project, [
         "title",
         "summary",
-        "tags",
-        "publishedAtHuman",
+        "status",
+        "periodHuman",
+        "usedTechnologies",
         "body",
       ]),
     },

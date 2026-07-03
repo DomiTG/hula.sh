@@ -1,8 +1,17 @@
-import { allPosts } from "contentlayer/generated";
+import FooterComponent from "@/components/footer-component";
+import { allProjects } from "contentlayer/generated";
+import { X } from "lucide-react";
 import { useRouter } from "next/router";
 
-export default function BlogPage() {
+export default function ProjectsPage() {
   const router = useRouter();
+
+  const projects = [...allProjects].sort((a, b) => {
+    if (a.featured !== b.featured) return a.featured ? -1 : 1;
+    if (a.order && b.order) return a.order - b.order;
+
+    return new Date(b.from).getTime() - new Date(a.from).getTime();
+  });
 
   return (
     <div className="min-h-screen h-full flex justify-center bg-neutral-900 p-4">
@@ -13,47 +22,80 @@ export default function BlogPage() {
               <h2 className="text-xl font-bold text-neutral-100">hula.sh</h2>
             </nav>
           </div>
+
           <section className="p-4 pt-10">
             <div className="flex flex-row items-start">
-              <h1 className="text-5xl font-bold text-neutral-100">Blog</h1>
+              <h1 className="text-5xl font-bold text-neutral-100">
+                Projects
+              </h1>
             </div>
+
             <p className="text-neutral-200 mt-4">
-              Here you can find all my blog posts. I write about web
-              development, software engineering, and other interesting topics.
-              Enjoy reading!
+              A collection of my personal, client, and archived projects.
+              Some are finished, some are actively evolving, and some helped
+              shape what I build today.
             </p>
           </section>
-          <section className="p-4">
-            {allPosts.length === 0 && (
-              <div className="text-neutral-200">No posts found.</div>
+
+          <section className="p-4 space-y-2">
+            {projects.length === 0 && (
+              <div className="border border-dashed border-neutral-700 p-4 rounded-md text-neutral-500 h-32 flex flex-col items-center justify-center">
+                <X className="mb-2" size={24} />
+                Sadly, there are no projects yet. Please check back later.
+              </div>
             )}
-            {allPosts.length > 0 &&
-              allPosts.map((post) => (
-                <div
-                  key={post.slug}
-                  className="w-full p-4 bg-transparent rounded-md hover:bg-neutral-800 transition-all cursor-pointer"
-                  onClick={() => router.push(`/blog/${post.slug}`)}
-                >
-                  <div className="flex flex-row items-center">
-                    <span className="text-neutral-200 text-xs">
-                      {post.publishedAtHuman}
-                    </span>
-                    <span className="text-neutral-500 text-xs ml-2">•</span>
-                    <span className=" text-xs ml-2 uppercase text-transparent bg-clip-text bg-gradient-to-t from-pink-500 to-pink-600 font-bold">
-                      {post.tags ? post.tags.join(", ") : ""}
-                    </span>
-                  </div>
-                  <h4 className="font-bold text-neutral-200 text-2xl">
-                    <span className="text-neutral-200">
-                      {post.title}
-                    </span>
-                  </h4>
-                  <p className="text-neutral-200 mt-2">
-                    {post.summary}
-                  </p>
+
+            {projects.map((project) => (
+              <div
+                key={project.slug}
+                className="w-full p-4 bg-transparent rounded-md hover:bg-neutral-800 transition-all cursor-pointer"
+                onClick={() => router.push(`/projects/${project.slug}`)}
+              >
+                <div className="flex flex-row items-center flex-wrap gap-y-1">
+                  <span className="text-neutral-200 text-xs">
+                    {project.periodHuman}
+                  </span>
+
+                  <span className="text-neutral-500 text-xs ml-2">•</span>
+
+                  <span className="text-xs ml-2 uppercase text-transparent bg-clip-text bg-gradient-to-t from-pink-500 to-pink-600 font-bold">
+                    {project.status}
+                  </span>
+
+                  {project.client && (
+                    <>
+                      <span className="text-neutral-500 text-xs ml-2">•</span>
+                      <span className="text-neutral-400 text-xs ml-2">
+                        {project.client}
+                      </span>
+                    </>
+                  )}
                 </div>
-              ))}
+
+                <h4 className="font-bold text-neutral-200 text-2xl mt-1">
+                  {project.title}
+                </h4>
+
+                <p className="text-neutral-200 mt-2">
+                  {project.summary}
+                </p>
+
+                {project.tags && project.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-xs text-neutral-400 border border-neutral-800 rounded-full px-2 py-1"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
           </section>
+
           <div
             className="block w-full p-4 text-center bg-neutral-800 rounded-md border border-neutral-800 backdrop-blur-md bg-opacity-50 hover:bg-opacity-60 transition-all mt-4 text-neutral-100 tracking-widest uppercase cursor-pointer"
             onClick={() => router.push("/")}
@@ -61,9 +103,8 @@ export default function BlogPage() {
             Go back to the homepage
           </div>
         </div>
-        <footer className="mt-8 mb-3 text-center text-neutral-500 text-sm">
-          © 2024 Dominik Hůla. All rights reserved.
-        </footer>
+
+        <FooterComponent />
       </div>
     </div>
   );

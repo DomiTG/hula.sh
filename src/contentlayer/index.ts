@@ -1,4 +1,3 @@
-// https://github.com/screfy/screfy.com/blob/main/src/contentlayer/code-transformer.ts
 //
 import type { LocalDocument } from 'contentlayer/source-files';
 

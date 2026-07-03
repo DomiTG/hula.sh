@@ -1,3 +1,5 @@
+import FooterComponent from "@/components/footer-component";
+import NavComponent from "@/components/nav-component";
 import { allProjects } from "contentlayer/generated";
 import { useRouter } from "next/router";
 
@@ -8,17 +10,13 @@ export default function ProjectsPage() {
     <div className="min-h-screen h-full flex justify-center bg-neutral-900 p-4">
       <div>
         <div className="max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl w-full">
-          <div className="sticky top-2 z-[99]">
-            <nav className="flex justify-between items-center p-4 rounded-md bg-neutral-800 backdrop-blur-lg bg-opacity-50 border border-neutral-800">
-              <h2 className="text-xl font-bold text-neutral-100">hula.sh</h2>
-            </nav>
-          </div>
+          <NavComponent />
           <section className="p-4 pt-10">
             <div className="flex flex-row items-start">
               <h1 className="text-5xl font-bold text-neutral-100">Projects</h1>
             </div>
             <p className="text-neutral-200 mt-4">
-                What did I work on? What are my latest projects? Check out my latest projects and see what I can do. I believe you will find something interesting.
+              What did I work on? What are my latest projects? Check out my latest projects and see what I can do. I believe you will find something interesting.
             </p>
           </section>
           <section className="p-4">
@@ -62,9 +60,7 @@ export default function ProjectsPage() {
             Go back to the homepage
           </div>
         </div>
-        <footer className="mt-8 mb-3 text-center text-neutral-500 text-sm">
-          © 2024 Dominik Hůla. All rights reserved.
-        </footer>
+        <FooterComponent />
       </div>
     </div>
   );

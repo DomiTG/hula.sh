@@ -5,6 +5,8 @@ import { pick } from "contentlayer/client";
 import { components } from "@/mdx/MdxComponents";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import FooterComponent from "@/components/footer-component";
+import NavComponent from "@/components/nav-component";
 
 export default function BlogPostPage({ project }: { project: Project }) {
   const router = useRouter();
@@ -19,11 +21,7 @@ export default function BlogPostPage({ project }: { project: Project }) {
       <div className="min-h-screen h-full flex justify-center bg-neutral-900 p-4">
         <div>
           <div className="max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl w-full">
-            <div className="sticky top-2 z-[99]">
-              <nav className="flex justify-between items-center p-4 rounded-md bg-neutral-800 backdrop-blur-lg bg-opacity-50 border border-neutral-800">
-                <h2 className="text-xl font-bold text-neutral-100">hula.sh</h2>
-              </nav>
-            </div>
+            <NavComponent/>
             <section className="px-4 pt-10">
               <div className="flex flex-row items-start">
                 <h1 className="text-3xl font-bold text-neutral-100">
@@ -40,7 +38,7 @@ export default function BlogPostPage({ project }: { project: Project }) {
               </p>
               <p className="text-neutral-300 mt-4 px-2">
                 {project.usedTechnologies ? project.usedTechnologies.join(", ") : "No technologies"}
-            </p>
+              </p>
             </section>
             <section className="p-4">
               <Comp components={components} />
@@ -52,9 +50,7 @@ export default function BlogPostPage({ project }: { project: Project }) {
               Go back to the homepage
             </div>
           </div>
-          <footer className="mt-8 mb-3 text-center text-neutral-500 text-sm">
-            © 2024 Dominik Hůla. All rights reserved.
-          </footer>
+          <FooterComponent />
         </div>
       </div>
     </>

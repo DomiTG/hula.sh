@@ -1,0 +1,68 @@
+---
+title: "Aviationify"
+from: "2023-08-01"
+to: "2023-09-01"
+summary: "A desktop companion application for Microsoft Flight Simulator that added structure and progression through dynamically generated airline careers."
+status: "completed"
+featured: false
+order: 5
+
+tags:
+  - Flight Simulation
+  - Desktop Application
+  - Career Mode
+
+usedTechnologies:
+  - TypeScript
+  - Electron
+  - WebSockets
+  - FSUIPC
+---
+
+# Aviationify
+
+> My first attempt at building a desktop application for the flight simulation community.
+
+---
+
+## The idea
+
+One thing I always felt was missing from flight simulators was a sense of progression.
+
+Flying from A to B is enjoyable, but after a while it becomes difficult to decide *where* to fly next. I wanted to build something that would give every flight a purpose instead of leaving every decision to the pilot.
+
+That idea eventually became Aviationify.
+
+<MdxImage src="/aviationify/jobs.webp" width={1920} height={1020}/>
+
+The application generated an airline career where the user progressed through different airlines by completing scheduled flights. Routes were based on real-world operations and each completed flight contributed to the pilot's overall progression.
+
+---
+
+## Flight tracking
+
+Aviationify communicated with Microsoft Flight Simulator through **FSUIPC**, allowing it to monitor the current flight in real time.
+
+Using telemetry received from the simulator, the application could determine whether a flight had been completed successfully and automatically update the pilot's career without requiring manual input.
+
+Communication between the desktop application and backend services was handled through WebSockets, making status updates immediate while the simulator was running.
+
+<MdxImage src="/aviationify/map.webp" width={1920} height={1020}/>
+
+---
+
+## Technology
+
+The entire application was built with **TypeScript** and **Electron**, making it possible to ship a native desktop experience while sharing the same language across the entire project.
+
+Although the project only existed for about a month, it taught me a lot about desktop application development, realtime communication and integrating with external software that I didn't control.
+
+---
+
+## Looking back
+
+Aviationify was never meant to become a finished product.
+
+Instead, it became the foundation for everything I built afterwards.
+
+Many of the ideas explored here eventually evolved into much larger projects with a broader scope, but this was where the journey started.

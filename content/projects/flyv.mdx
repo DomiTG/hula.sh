@@ -1,0 +1,109 @@
+---
+title: "Flyv"
+from: "2025-07-01"
+summary: "A modern aviation platform built around a shared ecosystem for virtual pilots, airlines and flight simulation communities."
+link: "https://flyv.app"
+githubRepo: ""
+status: "active"
+featured: true
+order: 1
+
+tags:
+  - SaaS
+  - Flight Simulation
+  - Aviation
+  - Full Stack
+
+usedTechnologies:
+  - Next.js
+  - React
+  - TypeScript
+  - tRPC
+  - Prisma
+  - MySQL
+  - Redis
+  - AWS S3
+  - Docker
+  - Tailwind CSS
+  - shadcn/ui
+---
+
+# Flyv
+
+> A complete rethink of everything I learned while building Avionify.
+
+---
+
+## Why Flyv exists
+
+Flyv wasn't created because I wanted a different name.
+
+It exists because I wanted to build the platform I originally imagined, without carrying years of architectural compromises.
+
+After developing Avionify, I reached a point where I spent more time working around previous decisions than building new ideas. Rather than continuously patching the project, I archived it and started again with a clear goal: **design the platform around long-term scalability instead of short-term convenience.**
+
+---
+
+## More than a website
+
+At its core, Flyv is a platform for the flight simulation community.
+
+Pilots can build their careers, join virtual airlines, manage fleets, complete contracts, earn achievements and interact with a persistent ecosystem designed to connect every part of the experience.
+
+Instead of treating these features as separate applications, they are designed to work together as one system.
+
+That philosophy influences every technical decision behind the project.
+
+<MdxImage src="/flyv/main-page.webp" width={1920} height={1020}/>
+
+---
+
+## Building the foundation
+
+One of the biggest differences compared to previous projects is the amount of time invested in the foundation before adding features.
+
+Authentication is designed as a standalone identity service.
+
+Permissions are role-based and reusable across the entire platform.
+
+Media uploads are handled through dedicated storage services.
+
+Real-time notifications are delivered through Server-Sent Events.
+
+Database models are structured to support future expansion rather than only today's requirements.
+
+Much of the development isn't immediately visible to users, but it makes adding new functionality significantly easier.
+
+---
+
+## Technology
+
+Flyv is built almost entirely with TypeScript.
+
+The frontend uses **Next.js**, **React** and **Tailwind CSS**, while the backend relies on **tRPC**, **Prisma**, **MySQL** and **Redis**. File storage is handled through **AWS S3**, with Docker used for local development and deployment.
+
+The project follows a component-driven approach with a strong focus on type safety, reusable abstractions and maintainable code.
+
+---
+
+## Current focus
+
+Flyv is still under active development.
+
+The current work focuses on expanding the airline management experience, improving the pilot career system and refining the overall user experience before the platform becomes publicly available.
+
+Rather than shipping features as quickly as possible, I prefer building systems that can continue to evolve without requiring major rewrites.
+
+---
+
+## What this project means to me
+
+Flyv is the largest software project I've worked on.
+
+It combines everything I've learned from previous projects into a single codebase—from frontend development and backend architecture to authentication, infrastructure, databases and real-time communication.
+
+More importantly, it represents a different way of approaching software development.
+
+Instead of asking **"How can I build this feature?"**, I now spend much more time asking **"How will this decision affect the next hundred features?"**
+
+That shift in mindset has probably had a bigger impact on the project than any individual technology.

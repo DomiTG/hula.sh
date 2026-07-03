@@ -1,3 +1,7 @@
+import FooterComponent from "@/components/footer-component";
+import NavComponent from "@/components/nav-component";
+import { Quote } from "lucide-react";
+import Image from "next/image";
 import { useRouter } from "next/router";
 
 export default function Home() {
@@ -7,26 +11,36 @@ export default function Home() {
     <div className="min-h-screen h-full flex justify-center bg-neutral-900 p-4">
       <div>
         <div className="max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl w-full">
-          <div className="sticky top-2 z-[99]">
-            <nav className="flex justify-between items-center p-4 rounded-md bg-neutral-800 backdrop-blur-lg bg-opacity-50 border border-neutral-800">
-              <h2 className="text-xl font-bold text-neutral-100">hula.sh</h2>
-            </nav>
-          </div>
+          <NavComponent/>
           <section className="p-4 pt-10">
-            <div className="flex flex-row items-start">
-              <h1 className="text-5xl font-bold text-neutral-100">
-                Dominik Hůla
-              </h1>
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
+              <Image
+                src="/dominik.webp"
+                alt="Profile picture of Dominik Hůla"
+                width={96}
+                height={96}
+                priority
+                className="h-24 w-24 rounded-full border border-neutral-800 object-cover shadow-lg shadow-black/20"
+              />
+
+              <div className="flex flex-col">
+                <span className="text-sm font-medium text-neutral-500">
+                  Hi, I&apos;m
+                </span>
+                <h1 className="mt-1 text-4xl font-bold tracking-tight text-neutral-100 sm:text-5xl">
+                  Dominik Hůla
+                </h1>
+
+                <p className="text-sm font-medium text-neutral-400">
+                  Software Engineer <span className="text-neutral-600">•</span> Web
+                  Developer
+                </p>
+              </div>
             </div>
-            <h2 className="text-sm font-bold text-neutral-500 mt-2">
-              Software Engineer <span className="text-neutral-400">•</span> Web
-              Developer
-            </h2>
-            <p className="text-neutral-200 mt-4">
-              Oh, hi there! Nice to meet you. I&apos;m Dominik, a software
-              engineer and web developer from the Czech Republic. I&apos;m
-              passionate about web technologies, open-source software, and
-              building things that make people&apos;s lives easier.
+
+            <p className="mt-6 max-w-2xl text-base leading-7 text-neutral-300">
+              <Quote className="-mt-1 mr-2 inline-block text-neutral-600" size={18} />
+              In the world of software development sice 2018 I have been creating web applications, websites, and other software solutions. I am passionate about technology and always strive to learn new things and improve my skills.
             </p>
           </section>
           <section className="p-4">
@@ -91,9 +105,7 @@ export default function Home() {
             </div>
           </section>
         </div>
-        <footer className="mt-8 mb-3 text-center text-neutral-500 text-sm">
-          © 2024 Dominik Hůla. All rights reserved.
-        </footer>
+        <FooterComponent />
       </div>
     </div>
   );

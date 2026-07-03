@@ -1,73 +1,99 @@
 ---
-title: Avionify
-from: 2024-01-01
-to: 2099-01-01
-summary: Welcome to Avionify, an innovative addon for major flight simulators. Avionify introduces pilot and manager career functionality, allowing users to manage their own airlines, hire real people, or join existing airlines as pilots.
-usedTechnologies:
-  - TypeScript
-  - React
-  - Express
-  - TailwindCSS
-  - Electron
+title: "Avionify"
+from: "2024-09-01"
+to: "2025-07-01"
+summary: "A large-scale virtual aviation platform combining pilot careers, virtual airlines and a persistent online ecosystem for flight simulator enthusiasts."
+link: "https://avionify.com"
+status: "archived"
+featured: true
+order: 3
+
 tags:
-  - Application
+  - SaaS
+  - Aviation
+  - Flight Simulation
+
+usedTechnologies:
+  - Next.js
+  - React
+  - TypeScript
+  - tRPC
+  - Prisma
+  - MySQL
+  - Redis
+  - Tailwind CSS
+  - AWS S3
+  - Docker
 ---
 
-## **Introduction**
-Avionify is a passion-driven project spearheaded by me, **Dominik**, after years of enjoying and exploring flight simulators. I aimed to create something new and valuable for the flight simulation community, offering a rich and engaging experience.
+# Avionify
 
-Originally conceived as a pilot-focused application called *Aviationify*, the initial attempt fell short. However, it provided valuable experience and led to the formation of a collaborative effort with another developer. Together, we reimagined the concept, leading to the birth of *Avionify*.
+> The project that changed how I approach software architecture.
 
-With Avionify, we offer users the ability to engage as both pilots and managers, managing airlines and connecting with others in the community for a deeply immersive experience.
+---
 
-## **What is Avionify?**
-**Avionify** transforms flight simulators by adding dynamic career modes. Whether you’ve dreamed of managing your own airline or excelling as a pilot, Avionify provides the tools to fulfill your ambitions.
+## Where it started
 
-### **Pilot Career Mode**
-- Start as a rookie pilot and work your way up by completing flights, earning promotions, and gaining in-game currency.
-- Maintain a strong safety record—no crashes allowed!
-- As you progress, licence yourself for new aircraft and explore a variety of routes.
+Avionify started with a simple question.
 
-### **Airline Manager Mode**
-- Reach **Level 10** as a pilot to unlock the airline management mode.
-- Use your app currency to establish and grow your company.
-- Hire other Avionify users as pilots, build a successful fleet, and dominate the skies.
+**What if every virtual airline, every pilot and every flight existed in one shared world instead of isolated servers?**
 
-This dual-mode approach adds depth, strategy, and engagement to flight simulation, making Avionify a one-of-a-kind tool for aviation enthusiasts.
+Most flight simulation platforms solve only one part of the experience. Some focus on virtual airlines, others on careers, while many leave the economy and progression entirely to spreadsheets or Discord servers.
 
-## **Key Features**
-- **Immersive Career Progression**: Level up as a pilot with realistic challenges.
-- **Dynamic Airline Management**: Design your fleet, recruit employees, and manage operations.
-- **Community-Driven Gameplay**: Interact with other users for hiring, collaboration, and competitive rankings.
-- **Simulator Integration**: Seamless connection with major flight simulators using **FSUIPC**, with plans for a proprietary connector in the future.
+I wanted to build a single platform where those pieces naturally fit together.
 
-## **Technology Stack**
-### **Backend**
-- **TypeScript** for consistent, maintainable code.
-- **Express** framework for API routes and efficient server-side logic.
-- **WebSocket** for real-time communication between app and server.
-- **MySQL** for robust and scalable data management.
+<MdxImage src="/avionify/airline-page.webp" width={1920} height={1020}/>
 
-### **Frontend**
-- **Electron** for a cross-platform desktop application experience.
-- **React** for dynamic, responsive interfaces.
-- **TailwindCSS** for modern and flexible styling.
+---
 
-## **Planned Features**
-- **Custom Simulator Connector**: Replace FSUIPC with a native solution for enhanced performance.
-- **Advanced Airline Customization**: Introduce detailed branding options, route planning tools, and analytics for managers.
-- **Global Leaderboards**: Showcase top pilots and airlines based on performance metrics.
-- **Event Integration**: Host competitive airline challenges and live events.
+## Building the platform
 
-## **Pricing**
-- **Free Plan**:
-  - Access the pilot career mode.
-  - Participate in community events.
+From the beginning, the goal wasn't to create another website.
 
-- **Premium Plan** ($3.99/month):
-  - Airline creation.
-  - Enable animated profile pictures and exclusive cosmetic features.
-  - Access premium support and early feature releases.
+It was to build an ecosystem.
 
-## **Conclusion**
-Avionify is more than just an addon; it’s a platform for aviation enthusiasts to explore new horizons. By combining technical excellence with an engaging career structure, we aim to redefine the flight simulation experience. Join us as we take flight into an exciting future!
+Pilots could progress through their careers, earn new aircraft type ratings and eventually join airlines operated by other players. Airlines managed their own fleets, recruited pilots and expanded over time, while everything happened inside the same persistent environment instead of separate communities.
+
+As development continued, the project grew far beyond what I had originally planned.
+
+Authentication, permissions, media management, real-time notifications, APIs, infrastructure and deployment all became part of the platform.
+
+<MdxImage src="/avionify/flight-select.webp" width={1920} height={1020}/>
+
+---
+
+## Lessons learned
+
+Avionify was the first project where architecture became more important than writing features.
+
+As the codebase expanded, I started recognising decisions that made future development harder than it needed to be. Nothing was fundamentally broken, but I realised I was solving problems created by my own architecture instead of building new functionality.
+
+That experience completely changed how I think about software design.
+
+---
+
+## Starting over
+
+Eventually I reached a point where adding more code no longer felt like the right decision.
+
+Instead of continuing to evolve the existing project, I archived Avionify and started again with a clean architecture.
+
+That new project became **Flyv**.
+
+The decision wasn't about abandoning the work that had already been done. Quite the opposite.
+
+Without Avionify, Flyv wouldn't exist.
+
+Nearly every architectural decision in Flyv is based on something I learned while building Avionify.
+
+<MdxImage src="/avionify/flight-report.webp" width={1920} height={1020}/>
+
+---
+
+## Looking back
+
+Although the project is now archived, I still consider it one of the most important things I've built.
+
+It was my first large-scale web application, the first project where I had to think seriously about scalability and maintainability, and the point where I stopped seeing software as individual pages and APIs and started thinking in terms of systems.
+
+In hindsight, archiving Avionify was probably the best technical decision I made.

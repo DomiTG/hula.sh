@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// https://github.com/screfy/screfy.com/blob/main/src/contentlayer/code-transformer.ts
 //
 
 import { visit } from 'unist-util-visit';
